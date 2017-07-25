@@ -1,3 +1,10 @@
-// Set up your root reducer here...
  import { combineReducers } from 'redux';
- export default combineReducers;
+ import { routerReducer } from 'react-router-redux';
+ import repoSearch from '../containers/RepoSearchPage/reducer/RepoSearchReducer';
+
+ const rootReducer = combineReducers({
+   routing: routerReducer,
+   repoSearch,
+ });
+
+ export default rootReducer;
