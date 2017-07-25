@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import RepoResultsList from '../components/RepoResultsList/RepoResultsList';
 
-class RepoSearchPage extends Component {
+export class RepoSearchPage extends Component {
   constructor(props) {
     super(props);
   }

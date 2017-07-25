@@ -1,3 +1,5 @@
+/* eslint import/no-named-as-default: 0 */
+
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
