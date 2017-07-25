@@ -29,6 +29,7 @@
   "author": "Gilly Ames",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.16.2",
     "object-assign": "4.1.0",
     "react": "15.5.4",
     "react-dom": "15.5.4",
