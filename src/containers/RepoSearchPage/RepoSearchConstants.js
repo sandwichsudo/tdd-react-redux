@@ -1,3 +1,4 @@
 export const actionTypes = {
   UPDATE_RESULTS: 'UPDATE_RESULTS',
+  REQUEST_COMPLETE: 'REQUEST_COMPLETE',
 };

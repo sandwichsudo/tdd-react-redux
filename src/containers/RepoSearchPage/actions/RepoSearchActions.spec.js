@@ -10,12 +10,24 @@ describe('repo search actions', () => {
       searchService.__setMockReposSearch(Promise.resolve({
         items: 'foo',
       }));
-
       const dispatch = jest.fn();
       await fetchRepos()(dispatch);
       expect(searchService.repoSearch).toHaveBeenCalled();
       expect(dispatch.mock.calls).toEqual([
-        [{ type: actionTypes.UPDATE_RESULTS, items: 'foo' }]
+        [{ type: actionTypes.UPDATE_RESULTS, items: 'foo' }],
+        [{ type: actionTypes.REQUEST_COMPLETE, error: '' }]
+      ]);
+    });
+
+    it('should dispatch error action when service throws and exception', async () => {
+      searchService.__setMockReposSearch(Promise.reject({
+        message: 'Something went wrong',
+      }));
+      const dispatch = jest.fn();
+      await fetchRepos()(dispatch);
+      expect(searchService.repoSearch).toHaveBeenCalled();
+      expect(dispatch.mock.calls).toEqual([
+        [{ type: actionTypes.REQUEST_COMPLETE, error: 'Something went wrong' }]
       ]);
     });
   });
