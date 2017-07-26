@@ -3,6 +3,9 @@ import { actionTypes } from '../RepoSearchConstants';
 
 export const fetchRepos = () => async (dispatch) => {
   let error = '';
+  dispatch({
+    type: actionTypes.REQUEST_START,
+  });
   try {
     const { items } = await searchService.repoSearch();
     dispatch({
