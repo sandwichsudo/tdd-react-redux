@@ -2,6 +2,7 @@ import { actionTypes } from '../RepoSearchConstants';
 
 const initialState = {
   results: [],
+  error: 'Oh dear'
 };
 
 export default (state = initialState, action) => {

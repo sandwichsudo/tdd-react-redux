@@ -15,10 +15,12 @@ export class RepoSearchPage extends Component {
   }
 
   render() {
+    const { error, searchResults } = this.props;
     return (
       <div>
         <h1>Top Javascript Repos</h1>
-        <RepoResultsList repos={this.props.searchResults}/>
+        {error && <p>{error}</p>}
+        <RepoResultsList repos={searchResults}/>
       </div>
     );
   }
@@ -27,10 +29,16 @@ export class RepoSearchPage extends Component {
 RepoSearchPage.propTypes = {
   searchResults: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
+  error: PropTypes.string,
+};
+
+RepoSearchPage.defaultProps = {
+  error: '',
 };
 
 const mapStateToProps = state => ({
   searchResults: state.repoSearch.results,
+  error: state.repoSearch.error,
 });
 
 const mapDispatchToProps = dispatch => ({
