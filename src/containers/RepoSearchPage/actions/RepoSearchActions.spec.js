@@ -14,6 +14,7 @@ describe('repo search actions', () => {
       await fetchRepos()(dispatch);
       expect(searchService.repoSearch).toHaveBeenCalled();
       expect(dispatch.mock.calls).toEqual([
+        [{ type: actionTypes.REQUEST_START }],
         [{ type: actionTypes.UPDATE_RESULTS, items: 'foo' }],
         [{ type: actionTypes.REQUEST_COMPLETE, error: '' }]
       ]);
@@ -27,6 +28,7 @@ describe('repo search actions', () => {
       await fetchRepos()(dispatch);
       expect(searchService.repoSearch).toHaveBeenCalled();
       expect(dispatch.mock.calls).toEqual([
+        [{ type: actionTypes.REQUEST_START }],
         [{ type: actionTypes.REQUEST_COMPLETE, error: 'Something went wrong' }]
       ]);
     });
